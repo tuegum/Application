@@ -28,6 +28,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.xuzheng.mBtChat.Client.DeviceActivity;
 import com.xuzheng.mBtChat.Server.AcceptService;
 import com.xuzheng.myapplication.R;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     private BleAdapter bleAdapter;
     private BluetoothAdapter mBluetoothAdapter;
+    public ImmersionBar mImmersionBar;
 
     private BluetoothLeScanner scanner;
     private BluetoothDevice selectedDevice;
@@ -62,10 +64,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
-            actionBar.hide();
-        }
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.statusBarColor(R.color.colorPrimary).init();
 
         isSupportBle();
         bindView();

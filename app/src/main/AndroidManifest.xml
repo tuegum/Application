@@ -30,6 +30,10 @@
             </intent-filter>
         </activity>
         <service android:name="com.xuzheng.mBtChat.Server.AcceptService"/>
+
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
     </application>
 
 </manifest>

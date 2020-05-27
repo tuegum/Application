@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.xuzheng.mBtChat.Client.ClientService;
 import com.xuzheng.mBtChat.Server.ServerService;
 import com.xuzheng.myapplication.R;
@@ -34,6 +35,8 @@ import java.util.List;
 public class ChatActivity extends AppCompatActivity {
 
     private static final String TAG = "ChatActivity";
+
+    public ImmersionBar mImmersionBar;
 
     private TextView tvName, tvAddress;
 
@@ -67,10 +70,8 @@ public class ChatActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_chat);
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
-            actionBar.hide();
-        }
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.statusBarColor(R.color.colorPrimary).init();
 
         initPreData();
 

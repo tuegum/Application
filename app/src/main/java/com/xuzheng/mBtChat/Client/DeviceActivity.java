@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.xuzheng.mBtChat.Chat.ChatActivity;
 import com.xuzheng.myapplication.R;
 
@@ -34,6 +35,7 @@ public class DeviceActivity extends AppCompatActivity {
 
     BluetoothDevice mDevice;
     ClientService service;
+    public ImmersionBar mImmersionBar;
 
     private TextView tvName, tvAddress, tvState, tvType, tvUUID, btn;
     private ListView lvUUID;
@@ -50,10 +52,8 @@ public class DeviceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device);
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
-            actionBar.hide();
-        }
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.statusBarColor(R.color.colorPrimary).init();
 
         mDevice = getIntent().getParcelableExtra("device");
         if (mDevice == null){
